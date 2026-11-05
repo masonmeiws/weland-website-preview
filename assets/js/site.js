@@ -110,10 +110,14 @@
       var line = window.innerHeight * 0.3;
       var current = 0;
       targets.forEach(function (t, k) { if (t && t.getBoundingClientRect().top <= line) current = k; });
+      // at the very bottom the last section is current, even when it is too short to reach the line
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = targets.length - 1;
       links.forEach(function (a, k) {
         if (k === current) a.setAttribute("aria-current", "true");
         else a.removeAttribute("aria-current");
       });
+      // the bar is clear while it sits in the page and takes the paper only once it sticks to the top
+      if (row.matches) toc.parentNode.classList.toggle("stuck", toc.parentNode.getBoundingClientRect().top <= 0.5);
       if (current !== last && row.matches) reveal(links[current]);
       last = current;
     };
