@@ -334,6 +334,7 @@ main > .home { width: min(var(--page), 100% - var(--gutter)); margin-inline: aut
 .sec::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--rule); }
 .sec + .sec { margin-top: var(--gap-section); }
 .sec > h2 { margin-bottom: 1.5rem; font-size: var(--t-h2); line-height: 1.25; }
+.conf .sec > h2 { color: var(--accent-ink, var(--accent)); }  /* section headings in the conference's colour */
 .prose + .rows { margin-top: 1.5rem; }
 /* subheadings in the page's colour (About's in the mark's azure) */
 .sub { margin: 2.5rem 0 0.5rem; font-size: var(--t-small); font-weight: 500; color: var(--accent-ink, var(--accent, var(--azure))); }
